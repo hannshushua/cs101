@@ -2,7 +2,7 @@
 
 int main(){
 
-    int i = 10;
+    int i = 3;
 
     if(i & (i - 1)){
         printf("false");
