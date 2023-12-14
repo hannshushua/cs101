@@ -2,7 +2,7 @@
 
 int main(){
     
-    int n = 20;
+    int n = 12345;
     int p1 , p2 , p3 , p4;
     p1 = p2 = p3 = p4 = 0;
     int ans = n ;
