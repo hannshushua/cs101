@@ -1,28 +1,24 @@
 #include <stdio.h>
 
 int main(){
-    double PI = 0.0;
+    double PI = 4.0;
     int x = 0;
+    int tp = 1;
+    long RPI = 0;
     double sum;
 
-    for (int i = 0; i <= 100000; i++){
-        
-        sum = 1.0 / (2 * i + 1);
-        
-        if(i % 2){
-            PI -= sum;
-        }else{
-            PI += sum;
-        }
-    
-        if((int)(PI * 4 * 100000) == 314159){
-                x = i;
-                break;
+    for (int i = 3; i <= 1000000; i+=2 , tp++){
+        (tp&0x01) ? (PI-=(4.0/i)) : (PI+=(4.0/i));
+        RPI = PI * 100000;
+
+        if(RPI == 314159){
+            x = i ;
+            break;
         }
     }
     
-    printf("%.5lf\n", 4 * PI);
-    printf("%d",x); // x = 136120次
+    printf("%.5f\n", PI);
+    printf("%d",x); // x = 272241次
     
     return 0;
 }
