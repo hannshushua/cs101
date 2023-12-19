@@ -17,7 +17,7 @@ int main(){
         }
     }
 
-    printf("%.5lf\n", 4 * PI);
+    printf("%.5f\n", 4 * PI);
     printf("%d",x); // x = 136120次
 
     return 0;
