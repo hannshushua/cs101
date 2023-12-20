@@ -9,7 +9,11 @@ int main(){
 
         sum = 1.0 / (2 * i + 1);
 
-        (i%2) ? (PI-=sum) : (PI+=sum);
+        if(i % 2){
+            PI -= sum;
+        }else{
+            PI += sum;
+        }
         
         if((long)(PI * 4 * 100000) == 314159){
                 x = i;
