@@ -43,7 +43,7 @@ void deletefront (node **head, node **back){
     if((*head)->next == NULL)*back=*head;
 }
 
-void deleteback (node ** head, node **back){
+void deleteback (node **head, node **back){
     if((*head)->next == NULL)return;
     
     node *temp = (*head);
@@ -57,6 +57,21 @@ void deleteback (node ** head, node **back){
     (*back)= temp;
     free(temp2);
 }
+
+void swap (node **head, node **back){ 
+
+    node *cur = (*head)->next; //要給cur東西 因為head是虛擬的沒有東西 head->next是第一個東西
+    node *pre = NULL;
+    node *temp = NULL;
+    while(cur != NULL){
+        temp = cur->next;
+        cur->next = pre;
+        pre = cur;
+        cur = temp;
+    }
+    (*head)->next = pre;
+}
+
 int main (){
     
     node* head = (node*)malloc(sizeof(node));
@@ -67,7 +82,8 @@ int main (){
     addfront(&head,&back,2);
     addfront(&head,&back,3);
     addfront(&head,&back,4);
-    deleteback(&head,&back);
+    
+    swap(&head,&back);
     printlist(&head);
 
 }
