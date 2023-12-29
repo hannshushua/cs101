@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 
 struct idol {
     char name[20];
@@ -37,8 +38,10 @@ int main (){
         if(cmp == 0){
             for(int i = 0 ; i < 5 ; i++){
             fearnot(&girl[i]);
-        }
+            }
             printf("%s is %d years old and %.1f cm tall.\n", girl[i].name, girl[i].age, girl[i].tall);
         }
     }
+    system("pause");
+    return 0 ;
 }
