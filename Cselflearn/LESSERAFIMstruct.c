@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 struct idol {
     char name[20];
@@ -14,8 +15,9 @@ void fearnot (LE_SSERAFIM *data){
     }
 }
 
-int main (){
 
+int main (){
+    int cmp ; 
     LE_SSERAFIM girl[5] = {
         {{'c','h','a','e','w','o','n','\0'},23,163.0},
         {{'y','u','n','j','i','n','\0'},22,172.0},
@@ -23,10 +25,20 @@ int main (){
         {{'e','u','n','c','h','a','e','\0'},17,168.0},
         {{'k','a','z','u','h','a','\0'},20,170.0}
     };
+    
+    char ipt[10];
+    fgets(ipt, 10, stdin);
+    if(ipt[strlen(ipt) - 1] == '\n'){
+        ipt[strlen(ipt) - 1] = '\0';
+    }
 
     for(int i = 0 ; i < 5 ; i++){
-        fearnot(&girl[i]);
-        printf("%7s|%d|%.1f\n", girl[i].name, girl[i].age, girl[i].tall);
+        cmp = strcmp(ipt,girl[i].name);
+        if(cmp == 0){
+            for(int i = 0 ; i < 5 ; i++){
+            fearnot(&girl[i]);
+        }
+            printf("%s is %d years old and %.1f cm tall.\n", girl[i].name, girl[i].age, girl[i].tall);
+        }
     }
-    
 }
