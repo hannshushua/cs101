@@ -39,9 +39,9 @@ int isempty(){ //檢測是否為empty stack
 }
 void push(int data){ //將資料存入stack
     linked_stack new_add_node = (linked_stack)malloc(sizeof(stacknode));
-    new_add_node->data = data;
-    new_add_node->next = top;
-    top = new_add_node;
+    new_add_node->data = data; //將輸入的資料存入新節點
+    new_add_node->next = top;  //將新節點指向top
+    top = new_add_node;        //新節點成為top
 }
 int pop(){  //把資料從stack拿出來
     linked_stack ptr;
@@ -52,7 +52,7 @@ int pop(){  //把資料從stack拿出來
     }else{
         ptr = top ;
         temp = ptr->data;
-        top = top->next;
+        top = top->next;    //top 指向下一個節點)向下
         free(ptr);
         return temp ;
     }
